@@ -68,10 +68,10 @@ function insertByMultipleKeys(sourceTable, targetTable, sourceKeys, targetKeys, 
 )*/
 
 insertByMultipleKeys(
-  'one-collection-by-title',
-  'new-square-products',
-  ['Product Title'],
-  ['Item Name'],
-  'Manual Collections',
-  'Category'
+  'brand-update',
+  'updated_brand_and_bulk',
+  ['Token'],
+  ['Token'],
+  'Default Vendor Name',
+  'Default Vendor Name'
 )

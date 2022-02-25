@@ -45,7 +45,7 @@ async function addPriceToBulk(){
                   ,[poundResult[0]['Token'], poundResult[0]['Item Name'], poundResult[0]['Variation Name'], priceToUse])
               }
 
-              await connection.execute("DELETE FROM `bulk-update-all` WHERE Token = ?", [poundResult[0]['Token']]) //Delete the pound variant because we don't need it
+              //await connection.execute("DELETE FROM `bulk-update-all` WHERE Token = ?", [poundResult[0]['Token']]) //Delete the pound variant because we don't need it
             }
 
           let updatedDescription = desc + "\n$" + addZeroes(String(currRow['Price']*16)) +"lb/$"+currRow['Price']+"oz*" +
@@ -60,8 +60,9 @@ async function addPriceToBulk(){
 
 
 
-          await connection.execute("UPDATE `bulk-update-all` SET `Description` = ? WHERE Token = ?"
-            ,[updatedDescription, currRow['Token']])
+          await connection.execute("UPDATE `bulk-update-all` SET `Description` = ? WHERE `Item Name` = ?"
+            ,[updatedDescription, currRow['Item Name']])
+          console.log(currRow['Item Name'])
 
 
         }
